@@ -57,12 +57,12 @@ Hibernate:
 #### employees
 | Método | URL | Resultado |
 | --- | :---: | ---: |
-| GET | localhost:8080/employees | Muestra de todos los empleados |
-| GET | localhost:8080/employees/99 | Muestra empleado 99 |
-| GET | localhost:8080/employees/1001 | Error. Muestra mensaje de error |
-| POST | localhost:8080/employees | Crea un registro **(1)** |
-| PUT | localhost:8080/employees/520 | Modifica registro 520 **(2)** |
-| DELETE | localhost:8080/employees/1001 | Borra registro 1001 |
+| GET | http://localhost:8080/employees | Muestra de todos los empleados |
+| GET | http://localhost:8080/employees/99 | Muestra empleado 99 |
+| GET | http://localhost:8080/employees/1001 | Error. Muestra mensaje de error |
+| POST | http://localhost:8080/employees | Crea un registro **(1)** |
+| PUT | http://localhost:8080/employees/520 | Modifica registro 520 **(2)** |
+| DELETE | http://localhost:8080/employees/1001 | Borra registro 1001 |
 
 
 **(1)**
@@ -138,10 +138,10 @@ Hibernate:
 | Método | URL | Resultado |
 | --- | :---: | ---: |
 | GET | http://localhost:8080/orders | Muestra de todas las ordenes |
-| GET | localhost:8080/orders/99 | Muestra orden 99 |
-| POST | localhost:8080/employees | Crea un registro **(1)** |
-| PUT | localhost:8080/employees/520 | Modifica registro 520 **(2)** |
-| DELETE | localhost:8080/employees/1001 | Borra registro 1001 |
+| GET | http://localhost:8080/orders/99 | Muestra orden 99 |
+| POST | http://localhost:8080/employees | Crea un registro **(1)** |
+| PUT | http://localhost:8080/employees/520 | Modifica registro 520 **(2)** |
+| DELETE | http://localhost:8080/employees/1001 | Borra registro 1001 |
 
 
 ###### NOTA
