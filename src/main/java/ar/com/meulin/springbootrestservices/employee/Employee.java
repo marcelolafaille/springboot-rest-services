@@ -1,18 +1,16 @@
 package ar.com.meulin.springbootrestservices.employee;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-public
-class Employee {
+@SequenceGenerator(name = "id", initialValue = 1001)
+public class Employee {
 
-    private @Id
-    @GeneratedValue
-    Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id")
+    private Long id;
     private String firstName;
     private String lastName;
     private String role;
@@ -21,7 +19,6 @@ class Employee {
     }
 
     public Employee(String firstName, String lastName, String role) {
-
         this.firstName = firstName;
         this.lastName = lastName;
         this.role = role;
@@ -71,7 +68,6 @@ class Employee {
 
     @Override
     public boolean equals(Object o) {
-
         if (this == o)
             return true;
         if (!(o instanceof Employee))

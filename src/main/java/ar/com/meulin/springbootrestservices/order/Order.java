@@ -1,19 +1,16 @@
 package ar.com.meulin.springbootrestservices.order;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table(name = "orders")
+@SequenceGenerator(name = "id", initialValue = 1001)
 public class Order {
 
-    private @Id
-    @GeneratedValue
-    Long id;
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id")
+    private Long id;
     private String description;
     private Status status;
 
@@ -21,7 +18,6 @@ public class Order {
     }
 
     public Order(String description, Status status) {
-
         this.description = description;
         this.status = status;
     }

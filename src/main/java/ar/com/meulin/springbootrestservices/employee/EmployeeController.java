@@ -24,10 +24,10 @@ class EmployeeController {
         this.assembler = assembler;
     }
 
+
     // Aggregate root
     @GetMapping("/employees")
     CollectionModel<EntityModel<Employee>> all() {
-
         List<EntityModel<Employee>> employees = repository.findAll().stream() //
                 .map(assembler::toModel) //
                 .collect(Collectors.toList());
@@ -35,10 +35,10 @@ class EmployeeController {
         return CollectionModel.of(employees, linkTo(methodOn(EmployeeController.class).all()).withSelfRel());
     }
 
+
     // Single item
     @GetMapping("/employees/{id}")
     EntityModel<Employee> one(@PathVariable Long id) {
-
         Employee employee = repository.findById(id) //
                 .orElseThrow(() -> new EmployeeNotFoundException(id));
 
@@ -48,7 +48,6 @@ class EmployeeController {
 
     @PostMapping("/employees")
     ResponseEntity<?> newEmployee(@RequestBody Employee newEmployee) {
-
         EntityModel<Employee> entityModel = assembler.toModel(repository.save(newEmployee));
 
         return ResponseEntity //
@@ -56,9 +55,9 @@ class EmployeeController {
                 .body(entityModel);
     }
 
+
     @PutMapping("/employees/{id}")
     ResponseEntity<?> replaceEmployee(@RequestBody Employee newEmployee, @PathVariable Long id) {
-
         Employee updatedEmployee = repository.findById(id) //
                 .map(employee -> {
                     employee.setName(newEmployee.getName());
@@ -77,9 +76,9 @@ class EmployeeController {
                 .body(entityModel);
     }
 
+
     @DeleteMapping("/employees/{id}")
     ResponseEntity<?> deleteEmployee(@PathVariable Long id) {
-
         repository.deleteById(id);
 
         return ResponseEntity.noContent().build();
