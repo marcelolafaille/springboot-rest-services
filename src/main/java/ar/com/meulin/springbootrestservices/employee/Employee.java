@@ -1,15 +1,19 @@
 package ar.com.meulin.springbootrestservices.employee;
 
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
-@SequenceGenerator(name = "id", initialValue = 1001)
+//@SequenceGenerator(name = "id", initialValue = 1001)
 public class Employee {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id")
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;

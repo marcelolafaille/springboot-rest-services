@@ -5,16 +5,20 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "orders")
-@SequenceGenerator(name = "id", initialValue = 1001)
+//@SequenceGenerator(name = "id", initialValue = 1001)
 public class Order {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id")
+//  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
     private Status status;
 
-    Order() {
+    Order(String description, String s) {
+    }
+
+    public Order() {
     }
 
     public Order(String description, Status status) {
